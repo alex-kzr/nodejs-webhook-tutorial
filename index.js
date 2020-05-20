@@ -1,6 +1,6 @@
 const https = require('https');
 
-https.get('url-string-please', (resp) => {
+https.get('https://discord.com/api/webhooks/712763641299992696/sp2h56MPizOKU2aM7Wzm4N6xFMp3xJm1vtU7s6YzkWu4oIZJ_gDzdt-hNS5HVMqbBgBF', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.

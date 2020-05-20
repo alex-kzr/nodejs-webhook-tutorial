@@ -1,18 +1,12 @@
-const https = require('https');
+const fetch = require('node-fetch');
 
-https.get('https://discord.com/api/webhooks/712763641299992696/sp2h56MPizOKU2aM7Wzm4N6xFMp3xJm1vtU7s6YzkWu4oIZJ_gDzdt-hNS5HVMqbBgBF', (resp) => {
-  let data = '';
+const whurl = 'https://discord.com/api/webhooks/712763641299992696/sp2h56MPizOKU2aM7Wzm4N6xFMp3xJm1vtU7s6YzkWu4oIZJ_gDzdt-hNS5HVMqbBgBF'
 
-  // A chunk of data has been recieved.
-  resp.on('data', (chunk) => {
-    data += chunk;
-  });
+const msg = { "content" : "Hello! I'm a bot" }
 
-  // The whole response has been received. Print out the result.
-  resp.on('end', () => {
-    console.log(data);
-  });
-
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-});
+fetch(whurl + "?wait=true",
+    {"method":"POST", 
+    "headers": {"content-type":"application/json"},
+    "body":JSON.stringify(msg)})
+.then(a=>a.json())
+.then(console.log);
